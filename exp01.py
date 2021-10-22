@@ -73,44 +73,49 @@ from skimage import io
 # cv2.imshow('original_img',original_img)
 # cv2.waitKey(0)
 
-
+#画矩形框
 # cv2.rectangle(original_img,(0,0),(original_img.shape[1]//2,original_img.shape[0]//2),(200,155,40),thickness=-1)
 # cv2.imshow('original_img',original_img)
 # cv2.waitKey(0)
 
+#画圆
 # cv2.circle(original_img,(450,450),40,(25,0,100),thickness=-1)
 # cv2.imshow('original_img',original_img)
 # cv2.waitKey(0)
-#
+
+#画直线
 # cv2.line(original_img,(100,100),(150,150),255,thickness=2)
 # cv2.imshow('original_img',original_img)
 # cv2.waitKey(0)
 
 # blank=np.ones((500,500,3),dtype='uint8')
-#
+
+#写入文字
 # cv2.putText(blank,'Good luck',(blank.shape[0]//2,blank.shape[1]//2),cv2.FONT_HERSHEY_COMPLEX,1,(200,0,200),thickness=3)
 # cv2.imshow('blank',blank)
 # cv2.waitKey(0)
 
-original_img=cv2.imread("640.jpg")
+# original_img=cv2.imread("640.jpg")
 # cv2.imshow('original_img',original_img)
 # Crop_img=original_img[200:350,325:450]
 # cv2.imshow('Crop_img',Crop_img)
 # cv2.waitKey(0)
 
-def rotate(img,angle,center=None):
-  w,h=img.shape[:2]
-  if center==None:
-    center=(w//2,h//2)
-    #center is the center of image from which we have to rotate if it is None then it is cconsider as the center of the original image.
-  rotMat=cv2.getRotationMatrix2D(center,angle,1.0)
-  dim=(w,h)
-  return cv2.warpAffine(img,rotMat,dim)
+#图像旋转操作
+#定义旋转函数
+# def rotate(img,angle,center=None):
+#   w,h=img.shape[:2]
+#   if center==None:
+#     center=(w//2,h//2)  #center is the center of image from which we have to rotate if it is None then it is consider as the center of the original image.
+#   rotMat=cv2.getRotationMatrix2D(center,angle,1.0)
+#   dim=(w,h)
+#   return cv2.warpAffine(img,rotMat,dim)
+# #旋转45度
+# Rotated_img=rotate(original_img,45,(60,60))
+# cv2.imshow('Rotated_img',Rotated_img)
+# cv2.waitKey(0)
 
-Rotated_img=rotate(original_img,45,(60,60))
-cv2.imshow('Rotated_img',Rotated_img)
-cv2.waitKey(0)
-
-flip_img=cv2.flip(original_img,-1)
-cv2.imshow('flip_img',flip_img)
-cv2.waitKey(0)
+#图像翻转
+# flip_img=cv2.flip(original_img,-1)
+# cv2.imshow('flip_img',flip_img)
+# cv2.waitKey(0)
